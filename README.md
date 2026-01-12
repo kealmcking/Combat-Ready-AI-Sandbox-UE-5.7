@@ -1,126 +1,128 @@
-# Combat-Ready NPC AI Sandbox (Unreal Engine 5)
+# **Combat-Ready NPC AI Sandbox (Unreal Engine 5)**
 
-## Project Overview
+## **Project Overview**
 
-This project is a focused AI sandbox built in Unreal Engine 5 using C++. It is designed to explore NPC movement, awareness, and decision flow in a combat-oriented context. The goal is not to ship a full game, but to build a clear and debuggable AI architecture that can be extended with perception, combat reasoning, and designer-tunable behavior.
+This project is a focused gameplay AI sandbox built in Unreal Engine 5 using C++. It explores NPC awareness, decision making, and behavior flow in a combat-oriented context. The goal is not to ship a full game, but to design a clear, extensible, and debuggable AI architecture suitable for complex RPG-style encounters.
 
-This repository represents Day 1 of development and establishes the foundational AI structure that future systems build upon.
-
----
-
-## Current Scope (Day 1)
-
-At this stage, the project implements a minimal but complete AI loop:
-
-* AI characters are controlled via a Behavior Tree and Blackboard
-* NPCs patrol the environment when no target is present
-* NPCs chase the player when a target is detected
-* All behavior is driven through C++ AI controller logic and Behavior Tree tasks
-* Navigation is handled through Unreal’s NavMesh system
-
-This establishes the baseline behavior flow before adding perception, memory, or combat logic.
+The project emphasizes system design, behavior clarity, and iteration over visual polish.
 
 ---
 
-## AI Architecture (v1)
+## **Current Capabilities**
+
+NPCs in the sandbox are currently able to:
+
+- Patrol autonomously using navigable space
+- Detect the player via sight
+- React to player-generated sound events
+- Pursue the player while line of sight is maintained
+- Investigate last known locations when contact is lost
+- Complete a search behavior and naturally return to patrol
+- Immediately interrupt lower-priority behaviors when higher-priority stimuli occur
+
+Behavior transitions are reactive and interruptible rather than time-driven.
+
+---
+
+## **AI Architecture**
 
 ### Core Components
 
-* AIEnemyCharacter (ACharacter)
-  Represents the NPC entity
+- AIEnemyController (C++)  
+  Owns perception, blackboard state, and behavior execution
 
-* AIEnemyController (AAIController)
-  Owns behavior execution and blackboard state
+- Behavior Tree  
+  Encodes high-level decision flow and priorities
 
-* Behavior Tree
-  Handles high-level control flow such as patrol versus chase
+- Blackboard  
+  Represents shared AI state including awareness, memory, and intent
 
-* Blackboard
-  Stores shared state accessed by tasks and decorators
+- Custom Behavior Tree Tasks and Services (C++)  
+  Handle navigation queries, memory updates, and state transitions
 
----
-
-### Blackboard Keys
-
-| Key Name     | Type   | Purpose                             |
-| ------------ | ------ | ----------------------------------- |
-| TargetActor  | Object | Current target to pursue (player)   |
-| MoveLocation | Vector | Navigation goal for patrol movement |
+Locomotion and animation are provided by Unreal’s Game Animation Sample so development focus remains on AI behavior and logic rather than animation setup.
 
 ---
 
-## Behavior Tree v1
+## **Perception and Awareness**
 
-The initial Behavior Tree is intentionally simple and readable:
+NPCs use Unreal Engine’s AI Perception system with sight and hearing configured in C++.
 
-* Selector
+- Sight detects the player within a defined radius and field of view
+- Hearing responds to explicit noise events reported by the player
+- Perception updates are filtered so only the player can become a valid target
+- Sight and hearing stimuli are handled differently to support investigation behavior
 
-  * Chase branch
-    Runs when TargetActor is set and moves toward the target actor
-  * Patrol branch
-    Selects a random reachable point on the NavMesh, moves to that location, then waits briefly before selecting a new point
-
-This structure establishes a clean separation between decision flow and action execution.
+Perception events update Blackboard state but do not directly drive movement.
 
 ---
 
-## Custom C++ Task
+## **Memory and Search Behavior**
 
-### BTTask_SetRandomReachablePoint
+NPCs maintain short-term memory of the player using Blackboard state.
 
-A custom Behavior Tree task implemented in C++ that performs the following:
+Tracked information includes:
 
-* Queries the NavMesh for a random reachable point within a defined radius
-* Writes the resulting location to the MoveLocation blackboard key
-* Fails gracefully if navigation data is unavailable
+- Whether the player is currently visible
+- The last known location where the player was seen or heard
+- Whether the AI is actively searching
 
-This task replaces Blueprint-only patrol logic and serves as a foundation for more advanced spatial reasoning later in the project.
+When line of sight is lost or a noise is heard:
 
----
+- The NPC moves to the last known location
+- Selects a nearby reachable point to investigate
+- Explicitly completes the search behavior
+- Clears search state and returns to patrol
 
-## Temporary Targeting Logic
-
-For Day 1 testing purposes, the AI uses a simple distance check to assign the TargetActor blackboard key.
-
-This logic is intentionally temporary and will be replaced by AI Perception using sight and hearing in the next phase.
-
----
-
-## Design Intent
-
-The focus at this stage is:
-
-* Clean separation of responsibilities
-* Readable and maintainable Behavior Trees
-* Minimal state coupling between systems
-* Early avoidance of overly complex or fragile tree structures
-
-The system is designed to scale into:
-
-* Perception and memory handling
-* Combat state modeling
-* Distance and health driven decision making
-* Designer-tunable AI archetypes
-* Debug visualization and tooling
+Search completion is behavior-driven rather than timer-based.
 
 ---
 
-## Next Steps
+## **Behavior Tree Structure**
 
-Planned additions in subsequent phases include:
+The Behavior Tree is organized into three high-level states:
 
-* AI Perception with sight and hearing
-* Memory and last known location searching
-* Explicit combat state modeling
-* Combat decision making based on distance and health
-* Debug overlays and visualization tools
+- Engage  
+  Runs when the player is visible and a valid target  
+  NPC pursues the player directly
+
+- Search  
+  Runs when the player is no longer visible but was recently detected  
+  NPC investigates last known information
+
+- Patrol  
+  Default behavior when no target or search is active  
+  NPC patrols using randomly selected reachable points
+
+State transitions are controlled through Blackboard decorators with observer aborts, allowing immediate reaction to changing conditions.
 
 ---
 
-## Notes
+## **Custom C++ AI Logic**
 
-Visual assets are intentionally minimal. The Unreal Game Animation Sample is used for the player character in order to prioritize AI system development over animation work.
+Implemented custom systems include:
+
+- A task for selecting random reachable navigation points
+- A task for explicitly ending search behavior
+- A Behavior Tree service that maintains consistent memory state and reacts to perception changes
+
+Behavior logic is intentionally kept out of animation, pawn, and low-level movement code, keeping decision ownership centralized and readable.
 
 ---
 
-This project is being developed as a portfolio piece focused on gameplay AI architecture, clarity, and iteration.
+## **Design Goals**
+
+This project demonstrates:
+
+- Clear separation between perception, memory, and behavior
+- Declarative behavior control via Blackboard-driven conditions
+- Interruptible AI states with well-defined priorities
+- A practical gameplay AI architecture suitable for combat-driven games
+
+The system is designed to scale into combat reasoning, threat evaluation, and archetype-based tuning without requiring structural changes.
+
+---
+
+## **Notes**
+
+Visual assets are intentionally minimal. The Unreal Game Animation Sample is used for character locomotion and animation to avoid duplicating solved systems and to focus development effort on AI behavior and architecture.
