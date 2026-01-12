@@ -4,7 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "AIController.h"
+#include "Perception/AIPerceptionTypes.h"
 #include "AIEnemyController.generated.h"
+
+class UAIPerceptionComponent;
+class UAISenseConfig_Sight;
+class UAISenseConfig_Hearing;
 
 /**
  * 
@@ -14,16 +19,27 @@ class COMBATREADYAISANDBOX_API AAIEnemyController : public AAIController
 {
 	GENERATED_BODY()
 
+	AAIEnemyController();
+
 public:
 	void OnPossess(APawn* InPawn) override;
 
 	UPROPERTY()
 	UBlackboardComponent* BlackboardComponent;
 
-	UPROPERTY(EditAnywhere, Category = "AI")
+	UPROPERTY(EditDefaultsOnly, Category = "AI")
 	UBlackboardData* BBAsset;
 
-	UPROPERTY(EditAnywhere, Category = "AI")
+	UPROPERTY(EditDefaultsOnly, Category = "AI")
 	UBehaviorTree* BTAsset;
+
+	UPROPERTY()
+	UAISenseConfig_Sight* SightConfig;
+
+	UPROPERTY()
+	UAISenseConfig_Hearing* HearingConfig;
+
+	UFUNCTION()
+	void OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
 	
 };

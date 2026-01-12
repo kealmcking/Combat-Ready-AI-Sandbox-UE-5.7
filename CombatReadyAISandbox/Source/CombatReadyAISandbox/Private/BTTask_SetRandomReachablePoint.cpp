@@ -17,6 +17,15 @@ UBTTask_SetRandomReachablePoint::UBTTask_SetRandomReachablePoint()
 
 EBTNodeResult::Type UBTTask_SetRandomReachablePoint::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
+
+	if (MoveLocationKey.SelectedKeyName.IsNone())
+	{
+		UE_LOG(LogTemp, Error, TEXT("BTTask_SetRandomReachablePoint: MoveLocationKey not set on the BT node"));
+		return EBTNodeResult::Failed;
+	}
+
+
+
 	AAIController* AICon = OwnerComp.GetAIOwner();
 	if (!AICon) {
 		return EBTNodeResult::Failed;
@@ -34,6 +43,7 @@ EBTNodeResult::Type UBTTask_SetRandomReachablePoint::ExecuteTask(UBehaviorTreeCo
 
 	const UNavigationSystemV1* NavSys = UNavigationSystemV1::GetCurrent(World);
 	if (!NavSys) {
+		UE_LOG(LogTemp, Error, TEXT("NavSys is null (no navigation system)"));
 		return EBTNodeResult::Failed;
 	}
 
@@ -42,6 +52,8 @@ EBTNodeResult::Type UBTTask_SetRandomReachablePoint::ExecuteTask(UBehaviorTreeCo
 	const bool bFound = NavSys->GetRandomReachablePointInRadius(Origin, SearchRadius, OutLocation);
 
 	if (!bFound) {
+		UE_LOG(LogTemp, Warning, TEXT("No reachable point found. Origin=%s Radius=%.1f"),
+			*Origin.ToString(), SearchRadius);
 		return EBTNodeResult::Failed;
 	}
 
