@@ -1,4 +1,4 @@
-# **Combat-Ready NPC AI Sandbox (Unreal Engine 5)**
+# **Combat-Ready NPC AI Sandbox (Unreal Engine 5.7)**
 
 ## **Project Overview**
 
