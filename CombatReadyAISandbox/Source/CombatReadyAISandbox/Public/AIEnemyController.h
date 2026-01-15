@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AIController.h"
+#include "AICombatTypes.h"
 #include "Perception/AIPerceptionTypes.h"
 #include "AIEnemyController.generated.h"
 

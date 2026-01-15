@@ -90,6 +90,9 @@ void AAIEnemyController::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus St
 
 		if (bIsSight)
 		{
+
+
+
 			BlackboardComponent->SetValueAsBool(TEXT("HasLOS"), true);
 			BlackboardComponent->SetValueAsBool(TEXT("IsSearching"), false);
 		}
