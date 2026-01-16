@@ -2,127 +2,77 @@
 
 ## **Project Overview**
 
-This project is a focused gameplay AI sandbox built in Unreal Engine 5 using C++. It explores NPC awareness, memory, and behavior flow in a combat-oriented context. The goal is not to ship a full game, but to design a clear, extensible, and debuggable AI architecture suitable for complex RPG-style encounters.
+This project is a focused gameplay AI sandbox built in Unreal Engine 5 using C++. Its purpose is to design and validate a clean, extensible, and debuggable NPC AI architecture suitable for combat-driven RPG and action games.
 
-The project emphasizes system design, behavior clarity, and iteration over visual polish, with a strong focus on readable decision logic and reactive behavior.
-
----
-
-## **Current Capabilities**
-
-NPCs in the sandbox are currently able to:
-
-- Patrol autonomously using navigable space
-- Detect the player via sight
-- React to player-generated sound events
-- Pursue the player while line of sight is maintained
-- Investigate last known locations when contact is lost
-- Complete a search behavior and naturally return to patrol
-- Immediately interrupt lower-priority behaviors when higher-priority stimuli occur
-
-Behavior transitions are reactive and interruptible rather than time-driven.
+Rather than shipping a complete game, the project exists to explore how perception, memory, decision-making, and behavior execution can be structured in a way that scales to complex encounters while remaining readable and designer-friendly.
 
 ---
 
-## **AI Architecture**
+## **Project Goals**
 
-### Core Components
+The primary goal of this project is to build a production-quality AI foundation that supports combat-ready NPCs without relying on hardcoded logic or fragile Behavior Tree structures.
 
-- AIEnemyController (C++)  
-  Owns perception, blackboard state, memory, and behavior execution
+Specifically, the project aims to:
 
-- Behavior Tree  
-  Encodes high-level decision flow and priority ordering
-
-- Blackboard  
-  Represents shared AI state including awareness, memory, and intent
-
-- Custom Behavior Tree Tasks and Services (C++)  
-  Handle navigation queries, perception-driven memory updates, and state transitions
-
-Locomotion and animation are provided by Unreal’s Game Animation Sample so development focus remains on AI behavior and system architecture rather than animation setup.
+- Separate perception, memory, decision-making, and execution into clearly defined systems
+- Drive behavior through declarative Blackboard state rather than imperative logic
+- Support immediate interruption and reprioritization of behavior in response to new stimuli
+- Keep Behavior Trees readable by pushing “thinking” into C++ services and utilities
+- Make AI intent observable and debuggable at runtime
 
 ---
 
-## **Perception and Awareness**
+## **Design Philosophy**
 
-NPCs use Unreal Engine’s AI Perception system with sight and hearing configured entirely in C++.
+This sandbox is built around the idea that NPC behavior should be understandable at a glance.
 
-- Sight detects the player within a defined radius and field of view
-- Hearing responds to explicit noise events reported by the player
-- Perception updates are filtered so only the player can become a valid target
-- Sight and hearing stimuli are handled differently to support investigation behavior
+High-level decisions are expressed through Blackboard state and Behavior Tree structure, while low-level logic lives in focused C++ tasks and services. The system favors explicit states, clear ownership of responsibility, and predictable transitions over emergent or opaque behavior.
 
-Perception events update Blackboard state but do not directly drive movement or behavior execution.
+The architecture is intentionally designed so that new behaviors, combat rules, or AI archetypes can be added without restructuring the core system.
 
 ---
 
-## **Memory and Search Behavior**
+## **AI Scope and Intent**
 
-NPCs maintain short-term memory of the player using Blackboard-driven state.
+The AI framework is designed to support NPCs that can:
 
-Tracked information includes:
+- Perceive the player through sight and hearing
+- Maintain short-term memory and reason about last known information
+- Transition cleanly between patrol, engagement, investigation, and recovery states
+- React immediately to higher-priority stimuli
+- Make movement and combat decisions based on context rather than scripted sequences
 
-- Whether the player is currently visible
-- The last known location where the player was seen or heard
-- Whether the AI is actively searching
-
-When line of sight is lost or a noise is detected:
-
-- The NPC moves to the last known location
-- Selects nearby reachable points to investigate
-- Explicitly completes the search behavior
-- Clears search state and returns to patrol
-
-Search completion is behavior-driven rather than timer-based.
+The sandbox focuses on the *decision layer* of AI rather than animation, weapon mechanics, or presentation.
 
 ---
 
-## **Behavior Tree Structure**
+## **Architecture Overview**
 
-The Behavior Tree is organized into three high-level behavior states:
+The system is built around the following principles:
 
-- Engage  
-  Runs when the player is visible and a valid target  
-  NPC actively pursues the player
+- An AI controller that owns perception, memory, and decision state
+- A Blackboard that represents the AI’s current understanding of the world
+- Behavior Trees that express high-level flow and priority
+- Custom C++ tasks and services that implement reasoning, navigation queries, and state transitions
 
-- Search  
-  Runs when the player is no longer visible but was recently detected  
-  NPC investigates last known information
-
-- Patrol  
-  Default behavior when no target or search is active  
-  NPC patrols using randomly selected reachable points
-
-State transitions are controlled through Blackboard decorators with observer aborts, allowing immediate reaction to changing conditions.
+Decision intent is centralized and decoupled from low-level movement, animation, and pawn logic.
 
 ---
 
-## **Custom C++ AI Logic**
+## **Extensibility Goals**
 
-Implemented custom systems include:
+The project is structured to scale naturally into:
 
-- A task for selecting random reachable navigation points
-- A task for explicitly ending search behavior
-- Behavior Tree services that maintain consistent memory state and manage combat state transitions
+- Combat decision-making based on distance, health, and threat
+- Archetype-driven behavior tuning through data assets
+- Advanced positioning logic such as cover usage and flanking
+- Debug visualization and AI introspection tools
+- Multi-agent or squad-based reasoning
 
-High-level decision intent (movement and weapon usage selection) is intentionally centralized and decoupled from low-level movement, animation, and pawn logic.
-
----
-
-## **Design Goals**
-
-This project demonstrates:
-
-- Clear separation between perception, memory, and behavior
-- Declarative behavior control via Blackboard-driven conditions
-- Interruptible AI states with well-defined priorities
-- A practical gameplay AI architecture suitable for combat-driven games
-
-The system is designed to scale into combat decision-making, threat evaluation, and archetype-based tuning without requiring structural changes.
+These extensions are intended to build on the existing architecture without requiring fundamental changes.
 
 ---
 
 ## **Notes**
 
-Visual assets are intentionally minimal. The Unreal Game Animation Sample is used for character locomotion and animation to avoid duplicating solved systems and to focus development effort on AI behavior and architecture.
+Visual assets are intentionally minimal. The Unreal Game Animation Sample is used for locomotion and animation to avoid duplicating solved systems and to keep development effort focused on AI behavior, architecture, and decision-making.
