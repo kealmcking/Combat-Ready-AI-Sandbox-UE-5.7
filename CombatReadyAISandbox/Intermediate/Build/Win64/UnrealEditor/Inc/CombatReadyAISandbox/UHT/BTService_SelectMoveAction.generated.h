@@ -32,14 +32,12 @@ public: \
 
 
 #define FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectMoveAction_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UBTService_SelectMoveAction(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	UBTService_SelectMoveAction(UBTService_SelectMoveAction&&) = delete; \
 	UBTService_SelectMoveAction(const UBTService_SelectMoveAction&) = delete; \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UBTService_SelectMoveAction); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UBTService_SelectMoveAction); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UBTService_SelectMoveAction) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UBTService_SelectMoveAction) \
 	NO_API virtual ~UBTService_SelectMoveAction();
 
 

@@ -14,60 +14,61 @@ class COMBATREADYAISANDBOX_API UAIArchetypeData : public UPrimaryDataAsset
 {
 	GENERATED_BODY()
 
-	UPROPERTY()
+public:
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Movement")
 	float WalkSpeed;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Movement")
 	float RunSpeed;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Weapon")
 	float PrefferedRangeMin;
 	
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Weapon")
 	float PrefferedRangeMax;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Attribute")
 	float Aggression;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Attribute")
 	float Bravery;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Attribute")
 	float RetreatHealthThreshold;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Movement")
 	float SearchDuration;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Movement")
 	float StrafeChance;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Movement")
 	float RepositionChance;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Weapon")
 	int32 FireBurstMin;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Weapon")
 	int32 FireBurstMax;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Weapon")
 	float TimeBetweenShots;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Weapon")
 	float AimReactionTime;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Movement")
 	float DashCooldown;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Weapon")
 	float ReloadCooldown;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Movement")
 	float PreferredCoverDistance;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Weapon")
 	float LineOfSightHoldTime;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = "Parameters | Weapon")
 	float Accuracy;
 };

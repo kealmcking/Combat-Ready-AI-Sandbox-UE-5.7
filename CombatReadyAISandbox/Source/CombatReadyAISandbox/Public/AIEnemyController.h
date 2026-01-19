@@ -6,6 +6,7 @@
 #include "AIController.h"
 #include "AICombatTypes.h"
 #include "Perception/AIPerceptionTypes.h"
+#include "AIArchetypeData.h"
 #include "AIEnemyController.generated.h"
 
 class UAIPerceptionComponent;
@@ -24,6 +25,8 @@ class COMBATREADYAISANDBOX_API AAIEnemyController : public AAIController
 
 public:
 	void OnPossess(APawn* InPawn) override;
+
+	const UAIArchetypeData* Archetype;
 
 	UPROPERTY()
 	UBlackboardComponent* BlackboardComponent;

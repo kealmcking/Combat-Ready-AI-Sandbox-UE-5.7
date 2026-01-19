@@ -58,9 +58,25 @@ struct Z_Construct_UClass_UBTService_SelectMoveAction_Statics
 		{ "IncludePath", "BTService_SelectMoveAction.h" },
 		{ "ModuleRelativePath", "Public/BTService_SelectMoveAction.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PreferredRangeMin_MetaData[] = {
+		{ "Category", "Tuning" },
+		{ "ModuleRelativePath", "Public/BTService_SelectMoveAction.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PreferredRangeMax_MetaData[] = {
+		{ "Category", "Tuning" },
+		{ "ModuleRelativePath", "Public/BTService_SelectMoveAction.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DecisionLockSeconds_MetaData[] = {
+		{ "Category", "Tuning" },
+		{ "ModuleRelativePath", "Public/BTService_SelectMoveAction.h" },
+	};
 #endif // WITH_METADATA
 
 // ********** Begin Class UBTService_SelectMoveAction constinit property declarations **************
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_PreferredRangeMin;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_PreferredRangeMax;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_DecisionLockSeconds;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 // ********** End Class UBTService_SelectMoveAction constinit property declarations ****************
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -68,6 +84,18 @@ struct Z_Construct_UClass_UBTService_SelectMoveAction_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 }; // struct Z_Construct_UClass_UBTService_SelectMoveAction_Statics
+
+// ********** Begin Class UBTService_SelectMoveAction Property Definitions *************************
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UBTService_SelectMoveAction_Statics::NewProp_PreferredRangeMin = { "PreferredRangeMin", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBTService_SelectMoveAction, PreferredRangeMin), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PreferredRangeMin_MetaData), NewProp_PreferredRangeMin_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UBTService_SelectMoveAction_Statics::NewProp_PreferredRangeMax = { "PreferredRangeMax", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBTService_SelectMoveAction, PreferredRangeMax), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PreferredRangeMax_MetaData), NewProp_PreferredRangeMax_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UBTService_SelectMoveAction_Statics::NewProp_DecisionLockSeconds = { "DecisionLockSeconds", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBTService_SelectMoveAction, DecisionLockSeconds), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DecisionLockSeconds_MetaData), NewProp_DecisionLockSeconds_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UBTService_SelectMoveAction_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBTService_SelectMoveAction_Statics::NewProp_PreferredRangeMin,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBTService_SelectMoveAction_Statics::NewProp_PreferredRangeMax,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBTService_SelectMoveAction_Statics::NewProp_DecisionLockSeconds,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UBTService_SelectMoveAction_Statics::PropPointers) < 2048);
+// ********** End Class UBTService_SelectMoveAction Property Definitions ***************************
 UObject* (*const Z_Construct_UClass_UBTService_SelectMoveAction_Statics::DependentSingletons[])() = {
 	(UObject* (*)())Z_Construct_UClass_UBTService,
 	(UObject* (*)())Z_Construct_UPackage__Script_CombatReadyAISandbox,
@@ -79,11 +107,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_UBTService_SelectMoveAc
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
 	nullptr,
-	nullptr,
+	Z_Construct_UClass_UBTService_SelectMoveAction_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
 	0,
-	0,
+	UE_ARRAY_COUNT(Z_Construct_UClass_UBTService_SelectMoveAction_Statics::PropPointers),
 	0,
 	0x001000A0u,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBTService_SelectMoveAction_Statics::Class_MetaDataParams), Z_Construct_UClass_UBTService_SelectMoveAction_Statics::Class_MetaDataParams)
@@ -99,7 +127,6 @@ UClass* Z_Construct_UClass_UBTService_SelectMoveAction()
 	}
 	return Z_Registration_Info_UClass_UBTService_SelectMoveAction.OuterSingleton;
 }
-UBTService_SelectMoveAction::UBTService_SelectMoveAction(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 DEFINE_VTABLE_PTR_HELPER_CTOR_NS(, UBTService_SelectMoveAction);
 UBTService_SelectMoveAction::~UBTService_SelectMoveAction() {}
 // ********** End Class UBTService_SelectMoveAction ************************************************
@@ -108,10 +135,10 @@ UBTService_SelectMoveAction::~UBTService_SelectMoveAction() {}
 struct Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectMoveAction_h__Script_CombatReadyAISandbox_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UBTService_SelectMoveAction, UBTService_SelectMoveAction::StaticClass, TEXT("UBTService_SelectMoveAction"), &Z_Registration_Info_UClass_UBTService_SelectMoveAction, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBTService_SelectMoveAction), 3078075517U) },
+		{ Z_Construct_UClass_UBTService_SelectMoveAction, UBTService_SelectMoveAction::StaticClass, TEXT("UBTService_SelectMoveAction"), &Z_Registration_Info_UClass_UBTService_SelectMoveAction, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBTService_SelectMoveAction), 2095926745U) },
 	};
 }; // Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectMoveAction_h__Script_CombatReadyAISandbox_Statics 
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectMoveAction_h__Script_CombatReadyAISandbox_1595054634{
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectMoveAction_h__Script_CombatReadyAISandbox_3518408716{
 	TEXT("/Script/CombatReadyAISandbox"),
 	Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectMoveAction_h__Script_CombatReadyAISandbox_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectMoveAction_h__Script_CombatReadyAISandbox_Statics::ClassInfo),
 	nullptr, 0,

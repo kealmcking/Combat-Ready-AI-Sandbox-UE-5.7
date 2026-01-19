@@ -58,9 +58,15 @@ struct Z_Construct_UClass_UBTService_SelectWeaponAction_Statics
 		{ "IncludePath", "BTService_SelectWeaponAction.h" },
 		{ "ModuleRelativePath", "Public/BTService_SelectWeaponAction.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxFireDistance_MetaData[] = {
+		{ "Category", "Tuning" },
+		{ "ModuleRelativePath", "Public/BTService_SelectWeaponAction.h" },
+	};
 #endif // WITH_METADATA
 
 // ********** Begin Class UBTService_SelectWeaponAction constinit property declarations ************
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_MaxFireDistance;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 // ********** End Class UBTService_SelectWeaponAction constinit property declarations **************
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -68,6 +74,14 @@ struct Z_Construct_UClass_UBTService_SelectWeaponAction_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 }; // struct Z_Construct_UClass_UBTService_SelectWeaponAction_Statics
+
+// ********** Begin Class UBTService_SelectWeaponAction Property Definitions ***********************
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UBTService_SelectWeaponAction_Statics::NewProp_MaxFireDistance = { "MaxFireDistance", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBTService_SelectWeaponAction, MaxFireDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxFireDistance_MetaData), NewProp_MaxFireDistance_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UBTService_SelectWeaponAction_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBTService_SelectWeaponAction_Statics::NewProp_MaxFireDistance,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UBTService_SelectWeaponAction_Statics::PropPointers) < 2048);
+// ********** End Class UBTService_SelectWeaponAction Property Definitions *************************
 UObject* (*const Z_Construct_UClass_UBTService_SelectWeaponAction_Statics::DependentSingletons[])() = {
 	(UObject* (*)())Z_Construct_UClass_UBTService,
 	(UObject* (*)())Z_Construct_UPackage__Script_CombatReadyAISandbox,
@@ -79,11 +93,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_UBTService_SelectWeapon
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
 	nullptr,
-	nullptr,
+	Z_Construct_UClass_UBTService_SelectWeaponAction_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
 	0,
-	0,
+	UE_ARRAY_COUNT(Z_Construct_UClass_UBTService_SelectWeaponAction_Statics::PropPointers),
 	0,
 	0x001000A0u,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBTService_SelectWeaponAction_Statics::Class_MetaDataParams), Z_Construct_UClass_UBTService_SelectWeaponAction_Statics::Class_MetaDataParams)
@@ -99,7 +113,6 @@ UClass* Z_Construct_UClass_UBTService_SelectWeaponAction()
 	}
 	return Z_Registration_Info_UClass_UBTService_SelectWeaponAction.OuterSingleton;
 }
-UBTService_SelectWeaponAction::UBTService_SelectWeaponAction(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 DEFINE_VTABLE_PTR_HELPER_CTOR_NS(, UBTService_SelectWeaponAction);
 UBTService_SelectWeaponAction::~UBTService_SelectWeaponAction() {}
 // ********** End Class UBTService_SelectWeaponAction **********************************************
@@ -108,10 +121,10 @@ UBTService_SelectWeaponAction::~UBTService_SelectWeaponAction() {}
 struct Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectWeaponAction_h__Script_CombatReadyAISandbox_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UBTService_SelectWeaponAction, UBTService_SelectWeaponAction::StaticClass, TEXT("UBTService_SelectWeaponAction"), &Z_Registration_Info_UClass_UBTService_SelectWeaponAction, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBTService_SelectWeaponAction), 2771159996U) },
+		{ Z_Construct_UClass_UBTService_SelectWeaponAction, UBTService_SelectWeaponAction::StaticClass, TEXT("UBTService_SelectWeaponAction"), &Z_Registration_Info_UClass_UBTService_SelectWeaponAction, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBTService_SelectWeaponAction), 776502275U) },
 	};
 }; // Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectWeaponAction_h__Script_CombatReadyAISandbox_Statics 
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectWeaponAction_h__Script_CombatReadyAISandbox_3717433764{
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectWeaponAction_h__Script_CombatReadyAISandbox_242744768{
 	TEXT("/Script/CombatReadyAISandbox"),
 	Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectWeaponAction_h__Script_CombatReadyAISandbox_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectWeaponAction_h__Script_CombatReadyAISandbox_Statics::ClassInfo),
 	nullptr, 0,

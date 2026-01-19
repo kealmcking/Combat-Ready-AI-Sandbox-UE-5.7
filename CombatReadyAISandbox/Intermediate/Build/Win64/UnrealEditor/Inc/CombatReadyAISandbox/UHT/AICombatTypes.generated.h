@@ -34,4 +34,31 @@ template<> struct TIsUEnumClass<EAICombatState> { enum { Value = true }; };
 template<> COMBATREADYAISANDBOX_NON_ATTRIBUTED_API UEnum* StaticEnum<EAICombatState>();
 // ********** End Enum EAICombatState **************************************************************
 
+// ********** Begin Enum EAICombatAction ***********************************************************
+#define FOREACH_ENUM_EAICOMBATACTION(op) \
+	op(EAICombatAction::CloseDistance) \
+	op(EAICombatAction::Backpedal) \
+	op(EAICombatAction::Strafe) \
+	op(EAICombatAction::Reposition) \
+	op(EAICombatAction::Retreat) \
+	op(EAICombatAction::Dash) \
+	op(EAICombatAction::SeekCover) \
+	op(EAICombatAction::Wait) 
+
+enum class EAICombatAction : uint8;
+template<> struct TIsUEnumClass<EAICombatAction> { enum { Value = true }; };
+template<> COMBATREADYAISANDBOX_NON_ATTRIBUTED_API UEnum* StaticEnum<EAICombatAction>();
+// ********** End Enum EAICombatAction *************************************************************
+
+// ********** Begin Enum EAIWeaponAction ***********************************************************
+#define FOREACH_ENUM_EAIWEAPONACTION(op) \
+	op(EAIWeaponAction::None) \
+	op(EAIWeaponAction::Fire) \
+	op(EAIWeaponAction::Reload) 
+
+enum class EAIWeaponAction : uint8;
+template<> struct TIsUEnumClass<EAIWeaponAction> { enum { Value = true }; };
+template<> COMBATREADYAISANDBOX_NON_ATTRIBUTED_API UEnum* StaticEnum<EAIWeaponAction>();
+// ********** End Enum EAIWeaponAction *************************************************************
+
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

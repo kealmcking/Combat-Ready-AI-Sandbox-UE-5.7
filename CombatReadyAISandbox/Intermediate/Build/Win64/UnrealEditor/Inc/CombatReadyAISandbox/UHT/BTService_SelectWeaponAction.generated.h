@@ -32,14 +32,12 @@ public: \
 
 
 #define FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_SelectWeaponAction_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UBTService_SelectWeaponAction(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	UBTService_SelectWeaponAction(UBTService_SelectWeaponAction&&) = delete; \
 	UBTService_SelectWeaponAction(const UBTService_SelectWeaponAction&) = delete; \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UBTService_SelectWeaponAction); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UBTService_SelectWeaponAction); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UBTService_SelectWeaponAction) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UBTService_SelectWeaponAction) \
 	NO_API virtual ~UBTService_SelectWeaponAction();
 
 
