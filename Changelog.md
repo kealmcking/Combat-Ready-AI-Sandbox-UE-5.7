@@ -36,18 +36,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Initial AI sandbox project structure using Unreal Engine 5.7 and C++
-- AIEnemyController responsible for perception, blakckboard ownership and behavior execution
-- Behavior Tree and Blackboard-driven AI architecture
-- Autonomous patrol behavior using random reachable navigation points
-- Custom Behavior Tree task for selecting random reachable points on the NavMesh
-- AI Perception system configured in C++ with sight and hearing
-- Player-only perception filtering for valid targets
-- Blackboard-driven awareness state including target tracking and visibility
-- Memory system tracking last known player location and last sensed time
-- Investigation behavior when line of sight is lost or sound is detected
-- Explicit search completion logic that clears search state and returns AI to patrol
-- Reactive behavior transistions using Blackboard decorators with observer aborts
-- Custom Behavior Tree services for maintaining perception-driven memory state
-- Clean separation between perception, memory, and behavior execution logic
-- Integration of Unreal's Game Animation Sample for locomotion and animation
+- Initial AI sandbox project setup in Unreal Engine 5.7 using C++
+- Core AI controller responsible for perception, blackboard state, and behavior execution
+- Behavior Tree and Blackboard-driven AI structure
+- Basic patrol behavior using random reachable navigation points
+- Custom Behavior Tree task for selecting reachable patrol locations
+- AI Perception setup in C++ with sight and hearing
+- Filtering so only the player can become a valid perception target
+- Blackboard state for target tracking and visibility
+- Memory tracking for last known player location and time last sensed
+- Basic investigation behavior when line of sight is lost or a sound is detected
+- Explicit logic to end search behavior and return to patrol
+- Use of observer aborts to allow behaviors to interrupt each other
+- Integration of Unreal’s Game Animation Sample for locomotion and animation
+
