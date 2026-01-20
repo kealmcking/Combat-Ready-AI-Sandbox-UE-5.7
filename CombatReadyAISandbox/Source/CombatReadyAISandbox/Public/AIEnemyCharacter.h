@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "AIArchetypeData.h"
 #include "AIEnemyCharacter.generated.h"
 
 UCLASS()

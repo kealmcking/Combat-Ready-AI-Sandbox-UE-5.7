@@ -26,7 +26,9 @@ class COMBATREADYAISANDBOX_API AAIEnemyController : public AAIController
 public:
 	void OnPossess(APawn* InPawn) override;
 
-	const UAIArchetypeData* Archetype;
+	UPROPERTY(EditDefaultsOnly, Category = "AI", meta = (DisplayThumbnail = "true"))
+	TObjectPtr<UAIArchetypeData> Archetype;
+
 
 	UPROPERTY()
 	UBlackboardComponent* BlackboardComponent;
@@ -45,5 +47,9 @@ public:
 
 	UFUNCTION()
 	void OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "AI|Locomotion")
+	void BP_ApplyLocomotionIntent(bool bWantsWalk, bool bWantsSprint, bool bWantsStrafe, bool bWantsAim);
+
 	
 };

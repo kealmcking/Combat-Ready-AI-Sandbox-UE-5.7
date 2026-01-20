@@ -3,6 +3,8 @@
 
 #include "AIEnemyController.h"
 
+#include "AIEnemyCharacter.h"
+
 #include "BehaviorTree/BehaviorTree.h"
 #include "BehaviorTree/BlackboardComponent.h"
 

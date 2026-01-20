@@ -3,6 +3,9 @@
 
 #include "BTService_UpdateCombatState.h"
 #include "AIController.h"
+#include "GameFramework/Character.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "AIEnemyController.h"
 #include "GameFramework/Pawn.h"
 
 UBTService_UpdateCombatState::UBTService_UpdateCombatState()
@@ -25,11 +28,11 @@ void UBTService_UpdateCombatState::TickNode(UBehaviorTreeComponent& OwnerComp, u
 	const bool bHasLOS = BB->GetValueAsBool(Key_HasLOS);
 	const bool bIsSearching = BB->GetValueAsBool(Key_IsSearching);
 
+	APawn* ControlledPawn = OwnerComp.GetAIOwner() ? OwnerComp.GetAIOwner()->GetPawn() : nullptr;
+
 	// Distance To Target
 	float Dist = 0.0f;
 	if (Target) {
-		APawn* ControlledPawn = OwnerComp.GetAIOwner() ? OwnerComp.GetAIOwner()->GetPawn() : nullptr;
-
 		if (ControlledPawn) {
 			Dist = FVector::Dist(ControlledPawn->GetActorLocation(), Target->GetActorLocation());
 		}
@@ -55,7 +58,15 @@ void UBTService_UpdateCombatState::TickNode(UBehaviorTreeComponent& OwnerComp, u
 
 	if (NewState != CurrentState) {
 		BB->SetValueAsEnum(Key_CombatState, static_cast<uint8>(NewState));
+
+		AAIEnemyController* MyCon = Cast<AAIEnemyController>(OwnerComp.GetAIOwner());
+		if (!MyCon) return;
+
+		const bool bCombatRun = (NewState == EAICombatState::Engaged) || (NewState == EAICombatState::Retreating);
+		MyCon->BP_ApplyLocomotionIntent(!bCombatRun, false, true, false);
 	}
+
+
 }
 
 EAICombatState UBTService_UpdateCombatState::ComputeState(UBlackboardComponent* BB, float Now, AActor* Target, bool bHasLOS, bool bIsSearching, float HealthPercent) const
