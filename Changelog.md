@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## **v0.0.3**
+
+### Added
+
+- Added intent-driven combat movement using explicit Blackboard move actions
+- Added custom Behavior Tree tasks for combat positioning (Close Distance, Backpedal)
+- Added preferred-distance based engagement positioning instead of direct MoveTo-player
+- Added `DesiredMoveLocation` Blackboard key to fully separate decision making from movement execution
+- Added decision lock timing to prevent rapid oscillation between movement actions
+- Added extensive runtime debug logging for movement intent and distance evaluation
+
+### Changed
+
+- Refactored Engage behavior to rely on movement intent branches instead of direct pursuit
+- Reworked Behavior Tree structure to support mutually exclusive movement execution paths
+- Updated combat movement to be fully data-driven by AI archetype tuning values
+- Improved separation between decision services and execution tasks
+
+### Fixed
+
+- Fixed AI continuously overshooting the player and clustering at zero distance
+- Fixed backpedal logic failing due to invalid or constantly changing destinations
+- Fixed movement jitter caused by combat state and movement intent fighting each other
+- Fixed edge cases where movement actions could never resolve due to decorator conflicts
+
+
 ## **v0.0.2**
 
 ### Added
@@ -32,6 +58,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed patrol behavior not aborting immediately when combat conditions became valid
 - Prevented perception updates from overwriting active search state
 
+
 ## **v0.0.1**
 
 ### Added
@@ -49,4 +76,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Explicit logic to end search behavior and return to patrol
 - Use of observer aborts to allow behaviors to interrupt each other
 - Integration of Unreal’s Game Animation Sample for locomotion and animation
-
