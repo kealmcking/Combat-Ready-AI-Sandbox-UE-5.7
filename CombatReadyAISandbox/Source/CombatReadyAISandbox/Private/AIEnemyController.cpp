@@ -65,10 +65,19 @@ void AAIEnemyController::OnPossess(APawn* InPawn)
 
 	BlackboardComponent = BBComp;
 
+	if (!BBComp || !Archetype) {
+		UE_LOG(LogTemp, Error, TEXT("AIEnemyController missing BlackboardComponent or Archetype"));
+		return;
+	}
+
+	ApplyArchetypeToBlackboard(BlackboardComponent);
+
+
 	if (!RunBehaviorTree(BTAsset)) {
 		UE_LOG(LogTemp, Error, TEXT("AIEnemyController failed to run behavior tree"));
 		return;
 	}
+
 
 	UE_LOG(LogTemp, Warning, TEXT("BehaviorTree started successfully"));
 }
@@ -114,4 +123,29 @@ void AAIEnemyController::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus St
 			BlackboardComponent->SetValueAsFloat(TEXT("LastSensedTime"), Now);
 		}
 	}
+}
+
+void AAIEnemyController::ApplyArchetypeToBlackboard(UBlackboardComponent* BBComp)
+{
+	BBComp->SetValueAsFloat(TEXT("PreferredRangeMin"), Archetype->PreferredRangeMin);
+	BBComp->SetValueAsFloat(TEXT("PreferredRangeMax"), Archetype->PreferredRangeMax);
+
+	BBComp->SetValueAsFloat(TEXT("WalkSpeed"), Archetype->WalkSpeed);
+	BBComp->SetValueAsFloat(TEXT("RunSpeed"), Archetype->RunSpeed);
+
+	BBComp->SetValueAsFloat(TEXT("RetreatHealthThreshold"), Archetype->RetreatHealthThreshold);
+
+	BBComp->SetValueAsFloat(TEXT("StrafeChance"), Archetype->StrafeChance);
+	BBComp->SetValueAsFloat(TEXT("RepositionChance"), Archetype->RepositionChance);
+	BBComp->SetValueAsFloat(TEXT("SearchDuration"), Archetype->SearchDuration);
+
+	BBComp->SetValueAsInt(TEXT("FireBurstMin"), Archetype->FireBurstMin);
+	BBComp->SetValueAsInt(TEXT("FireBurstMax"), Archetype->FireBurstMax);
+
+	BBComp->SetValueAsFloat(TEXT("TimeBetweenShots"), Archetype->TimeBetweenShots);
+	BBComp->SetValueAsFloat(TEXT("AimReactionTime"), Archetype->AimReactionTime);
+
+	BBComp->SetValueAsFloat(TEXT("Accuracy"), Archetype->Accuracy);
+	BBComp->SetValueAsFloat(TEXT("ReloadCooldown"), Archetype->ReloadCooldown);
+	BBComp->SetValueAsFloat(TEXT("LineOfSightHoldTime"), Archetype->LineOfSightHoldTime);
 }

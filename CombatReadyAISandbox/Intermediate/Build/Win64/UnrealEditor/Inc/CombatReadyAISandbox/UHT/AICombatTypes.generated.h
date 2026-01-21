@@ -36,14 +36,13 @@ template<> COMBATREADYAISANDBOX_NON_ATTRIBUTED_API UEnum* StaticEnum<EAICombatSt
 
 // ********** Begin Enum EAICombatAction ***********************************************************
 #define FOREACH_ENUM_EAICOMBATACTION(op) \
+	op(EAICombatAction::Wait) \
 	op(EAICombatAction::CloseDistance) \
 	op(EAICombatAction::Backpedal) \
 	op(EAICombatAction::Strafe) \
 	op(EAICombatAction::Reposition) \
-	op(EAICombatAction::Retreat) \
 	op(EAICombatAction::Dash) \
-	op(EAICombatAction::SeekCover) \
-	op(EAICombatAction::Wait) 
+	op(EAICombatAction::SeekCover) 
 
 enum class EAICombatAction : uint8;
 template<> struct TIsUEnumClass<EAICombatAction> { enum { Value = true }; };

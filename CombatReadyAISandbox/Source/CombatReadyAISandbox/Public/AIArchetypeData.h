@@ -22,10 +22,10 @@ public:
 	float RunSpeed;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Parameters | Weapon")
-	float PrefferedRangeMin;
+	float PreferredRangeMin;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Parameters | Weapon")
-	float PrefferedRangeMax;
+	float PreferredRangeMax;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Parameters | Attribute")
 	float Aggression;

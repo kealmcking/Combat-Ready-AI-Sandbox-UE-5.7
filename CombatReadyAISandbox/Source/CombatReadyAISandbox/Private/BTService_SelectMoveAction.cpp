@@ -30,7 +30,7 @@ void UBTService_SelectMoveAction::TickNode(UBehaviorTreeComponent& OwnerComp, ui
 	}
 
 	AActor* Target = Cast<AActor>(BB->GetValueAsObject(Key_TargetActor));
-	if (!Target) {
+	if (Target == nullptr) {
 		BB->SetValueAsEnum(Key_DesiredMoveAction, static_cast<uint8>(EAICombatAction::Wait));
 		BB->SetValueAsFloat(Key_DecisionLockTime, Now + DecisionLockSeconds);
 		return;
@@ -40,15 +40,21 @@ void UBTService_SelectMoveAction::TickNode(UBehaviorTreeComponent& OwnerComp, ui
 
 	EAICombatAction Chosen = EAICombatAction::Wait;
 
-	if (Dist > PreferredRangeMax) {
+	const float Min = BB->GetValueAsFloat(Key_PreferredRangeMin);
+	const float Max = BB->GetValueAsFloat(Key_PreferredRangeMax);
+
+	if (Dist > Max) {
 		Chosen = EAICombatAction::CloseDistance;
 	}
-	else if (Dist < PreferredRangeMin) {
+	else if (Dist < Min && Min > 0.0f) {
 		Chosen = EAICombatAction::Backpedal;
 	}
 	else {
 		Chosen = EAICombatAction::Wait;
 	}
+
+	const uint8 PrevRaw = BB->GetValueAsEnum(Key_DesiredMoveAction);
+	const EAICombatAction Prev = static_cast<EAICombatAction>(PrevRaw);
 
 	BB->SetValueAsEnum(Key_DesiredMoveAction, static_cast<uint8>(Chosen));
 	BB->SetValueAsFloat(Key_DecisionLockTime, Now + DecisionLockSeconds);

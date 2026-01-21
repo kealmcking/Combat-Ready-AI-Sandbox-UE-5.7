@@ -46,6 +46,8 @@ void UBTService_UpdateCombatState::TickNode(UBehaviorTreeComponent& OwnerComp, u
 		BB->SetValueAsFloat(Key_HealthPercent, HealthPercent);
 	}
 
+
+
 	// Track the last time we had LOS
 	if (bHasLOS && Target) {
 		LastHadLOSTime = Now;

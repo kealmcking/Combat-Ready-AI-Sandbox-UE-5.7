@@ -52,6 +52,8 @@ void UBTService_SelectWeaponAction::TickNode(UBehaviorTreeComponent& OwnerComp, 
 		return;
 	}
 
+	
+
 	if (bHasLOS && Dist <= MaxFireDistance) {
 		BB->SetValueAsEnum(Key_DesiredWeaponAction, static_cast<uint8>(EAIWeaponAction::Fire));
 	}

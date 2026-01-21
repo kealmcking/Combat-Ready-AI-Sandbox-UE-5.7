@@ -51,5 +51,5 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, Category = "AI|Locomotion")
 	void BP_ApplyLocomotionIntent(bool bWantsWalk, bool bWantsSprint, bool bWantsStrafe, bool bWantsAim);
 
-	
+	void ApplyArchetypeToBlackboard(UBlackboardComponent* BBComp);
 };

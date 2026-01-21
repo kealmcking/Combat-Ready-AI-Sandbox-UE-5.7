@@ -29,13 +29,11 @@ protected:
 	const FName Key_DesiredMoveAction = TEXT("DesiredMoveAction");
 	const FName Key_DesiredLocation = TEXT("DesiredMoveLocation");
 
+	const FName Key_PreferredRangeMin = TEXT("PreferredRangeMin");
+	const FName Key_PreferredRangeMax = TEXT("PreferredRangeMax");
+
 	const FName Key_DecisionLockTime = TEXT("DecisionLockTime");
 
-	UPROPERTY(EditAnywhere, Category = "Tuning")
-	float PreferredRangeMin = 800.0f;
-
-	UPROPERTY(EditAnywhere, Category = "Tuning")
-	float PreferredRangeMax = 1400.0f;
 
 	UPROPERTY(EditAnywhere, Category = "Tuning")
 	float DecisionLockSeconds = 1.0f;

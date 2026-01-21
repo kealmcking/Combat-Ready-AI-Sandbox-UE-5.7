@@ -18,14 +18,13 @@ enum class EAICombatState : uint8
 UENUM(BlueprintType)
 enum class EAICombatAction : uint8
 {
-	CloseDistance UMETA(DisplayName = "CloseDistance"),
-	Backpedal     UMETA(DisplayName = "Backpedal"),
-	Strafe        UMETA(DisplayName = "Strafe"),
-	Reposition    UMETA(DisplayName = "Reposition"),
-	Retreat       UMETA(DisplayName = "Retreat"),
-	Dash          UMETA(DisplayName = "Dash"),
-	SeekCover     UMETA(DisplayName = "SeekCover"),
-	Wait          UMETA(DisplayName = "Wait")
+    Wait = 0,
+    CloseDistance,
+    Backpedal,
+    Strafe,
+    Reposition,
+    Dash,
+    SeekCover
 };
 
 UENUM(BlueprintType)

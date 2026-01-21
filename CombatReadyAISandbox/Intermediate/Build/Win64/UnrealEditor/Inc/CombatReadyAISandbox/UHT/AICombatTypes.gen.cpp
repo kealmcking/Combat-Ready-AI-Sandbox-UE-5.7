@@ -94,35 +94,25 @@ struct Z_Construct_UEnum_CombatReadyAISandbox_EAICombatAction_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
-		{ "Backpedal.DisplayName", "Backpedal" },
 		{ "Backpedal.Name", "EAICombatAction::Backpedal" },
 		{ "BlueprintType", "true" },
-		{ "CloseDistance.DisplayName", "CloseDistance" },
 		{ "CloseDistance.Name", "EAICombatAction::CloseDistance" },
-		{ "Dash.DisplayName", "Dash" },
 		{ "Dash.Name", "EAICombatAction::Dash" },
 		{ "ModuleRelativePath", "Public/AICombatTypes.h" },
-		{ "Reposition.DisplayName", "Reposition" },
 		{ "Reposition.Name", "EAICombatAction::Reposition" },
-		{ "Retreat.DisplayName", "Retreat" },
-		{ "Retreat.Name", "EAICombatAction::Retreat" },
-		{ "SeekCover.DisplayName", "SeekCover" },
 		{ "SeekCover.Name", "EAICombatAction::SeekCover" },
-		{ "Strafe.DisplayName", "Strafe" },
 		{ "Strafe.Name", "EAICombatAction::Strafe" },
-		{ "Wait.DisplayName", "Wait" },
 		{ "Wait.Name", "EAICombatAction::Wait" },
 	};
 #endif // WITH_METADATA
 	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
+		{ "EAICombatAction::Wait", (int64)EAICombatAction::Wait },
 		{ "EAICombatAction::CloseDistance", (int64)EAICombatAction::CloseDistance },
 		{ "EAICombatAction::Backpedal", (int64)EAICombatAction::Backpedal },
 		{ "EAICombatAction::Strafe", (int64)EAICombatAction::Strafe },
 		{ "EAICombatAction::Reposition", (int64)EAICombatAction::Reposition },
-		{ "EAICombatAction::Retreat", (int64)EAICombatAction::Retreat },
 		{ "EAICombatAction::Dash", (int64)EAICombatAction::Dash },
 		{ "EAICombatAction::SeekCover", (int64)EAICombatAction::SeekCover },
-		{ "EAICombatAction::Wait", (int64)EAICombatAction::Wait },
 	};
 	static const UECodeGen_Private::FEnumParams EnumParams;
 }; // struct Z_Construct_UEnum_CombatReadyAISandbox_EAICombatAction_Statics 
@@ -210,11 +200,11 @@ struct Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_Combat
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
 		{ EAICombatState_StaticEnum, TEXT("EAICombatState"), &Z_Registration_Info_UEnum_EAICombatState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2184826638U) },
-		{ EAICombatAction_StaticEnum, TEXT("EAICombatAction"), &Z_Registration_Info_UEnum_EAICombatAction, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 357110670U) },
+		{ EAICombatAction_StaticEnum, TEXT("EAICombatAction"), &Z_Registration_Info_UEnum_EAICombatAction, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 895623600U) },
 		{ EAIWeaponAction_StaticEnum, TEXT("EAIWeaponAction"), &Z_Registration_Info_UEnum_EAIWeaponAction, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3941271516U) },
 	};
 }; // Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_AICombatTypes_h__Script_CombatReadyAISandbox_Statics 
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_AICombatTypes_h__Script_CombatReadyAISandbox_219469228{
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_AICombatTypes_h__Script_CombatReadyAISandbox_1127504227{
 	TEXT("/Script/CombatReadyAISandbox"),
 	nullptr, 0,
 	nullptr, 0,
