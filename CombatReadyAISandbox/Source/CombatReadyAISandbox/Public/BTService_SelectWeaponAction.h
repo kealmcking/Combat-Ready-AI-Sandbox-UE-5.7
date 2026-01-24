@@ -14,7 +14,6 @@ class COMBATREADYAISANDBOX_API UBTService_SelectWeaponAction : public UBTService
 {
 	GENERATED_BODY()
 
-public:
 	UBTService_SelectWeaponAction();
 
 protected:

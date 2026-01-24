@@ -29,17 +29,19 @@ protected:
 
 	const FName Key_CombatState = TEXT("CombatState");
 	const FName Key_DistanceToTarget = TEXT("DistanceToTarget");
-	const FName Key_HealthPercent = TEXT("HealthPercent");
-
-	// Tuning
-	UPROPERTY(EditAnywhere, Category = "Combat")
-	float RetreatHealthThreshold = 0.3f;
+	const FName Key_HealthPercent = TEXT("HealthPct");
 
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	float AlertedGraceSeconds = 1.5f;
 
 	float LastHadLOSTime = -1000.0f;
 
-	EAICombatState ComputeState(UBlackboardComponent* BB, float Now, AActor* Target, bool bHasLOS, bool bIsSearching, float HealthPercent) const;
+	EAICombatState ComputeState(UBlackboardComponent* BB,
+		float Now,
+		AActor* Target,
+		bool bHasLOS,
+		bool bIsSearching,
+		float HealthPercent) 
+	const;
 	
 };

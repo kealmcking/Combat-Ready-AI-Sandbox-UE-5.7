@@ -42,7 +42,8 @@ template<> COMBATREADYAISANDBOX_NON_ATTRIBUTED_API UEnum* StaticEnum<EAICombatSt
 	op(EAICombatAction::Strafe) \
 	op(EAICombatAction::Reposition) \
 	op(EAICombatAction::Dash) \
-	op(EAICombatAction::SeekCover) 
+	op(EAICombatAction::SeekCover) \
+	op(EAICombatAction::InCover) 
 
 enum class EAICombatAction : uint8;
 template<> struct TIsUEnumClass<EAICombatAction> { enum { Value = true }; };
@@ -53,11 +54,28 @@ template<> COMBATREADYAISANDBOX_NON_ATTRIBUTED_API UEnum* StaticEnum<EAICombatAc
 #define FOREACH_ENUM_EAIWEAPONACTION(op) \
 	op(EAIWeaponAction::None) \
 	op(EAIWeaponAction::Fire) \
-	op(EAIWeaponAction::Reload) 
+	op(EAIWeaponAction::Reload) \
+	op(EAIWeaponAction::OutOfAmmo) 
 
 enum class EAIWeaponAction : uint8;
 template<> struct TIsUEnumClass<EAIWeaponAction> { enum { Value = true }; };
 template<> COMBATREADYAISANDBOX_NON_ATTRIBUTED_API UEnum* StaticEnum<EAIWeaponAction>();
 // ********** End Enum EAIWeaponAction *************************************************************
+
+// ********** Begin Enum EAICoverAction ************************************************************
+#define FOREACH_ENUM_EAICOVERACTION(op) \
+	op(EAICoverAction::Hold) \
+	op(EAICoverAction::Hide) \
+	op(EAICoverAction::Peek) \
+	op(EAICoverAction::Lean) \
+	op(EAICoverAction::BlindFire) \
+	op(EAICoverAction::Reload) \
+	op(EAICoverAction::Reposition) \
+	op(EAICoverAction::Break) 
+
+enum class EAICoverAction : uint8;
+template<> struct TIsUEnumClass<EAICoverAction> { enum { Value = true }; };
+template<> COMBATREADYAISANDBOX_NON_ATTRIBUTED_API UEnum* StaticEnum<EAICoverAction>();
+// ********** End Enum EAICoverAction **************************************************************
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

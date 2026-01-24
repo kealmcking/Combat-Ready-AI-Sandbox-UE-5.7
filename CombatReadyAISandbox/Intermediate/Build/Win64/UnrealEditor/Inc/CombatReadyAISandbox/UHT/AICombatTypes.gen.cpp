@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeAICombatTypes() {}
 // ********** Begin Cross Module References ********************************************************
 COMBATREADYAISANDBOX_API UEnum* Z_Construct_UEnum_CombatReadyAISandbox_EAICombatAction();
 COMBATREADYAISANDBOX_API UEnum* Z_Construct_UEnum_CombatReadyAISandbox_EAICombatState();
+COMBATREADYAISANDBOX_API UEnum* Z_Construct_UEnum_CombatReadyAISandbox_EAICoverAction();
 COMBATREADYAISANDBOX_API UEnum* Z_Construct_UEnum_CombatReadyAISandbox_EAIWeaponAction();
 UPackage* Z_Construct_UPackage__Script_CombatReadyAISandbox();
 // ********** End Cross Module References **********************************************************
@@ -98,6 +99,7 @@ struct Z_Construct_UEnum_CombatReadyAISandbox_EAICombatAction_Statics
 		{ "BlueprintType", "true" },
 		{ "CloseDistance.Name", "EAICombatAction::CloseDistance" },
 		{ "Dash.Name", "EAICombatAction::Dash" },
+		{ "InCover.Name", "EAICombatAction::InCover" },
 		{ "ModuleRelativePath", "Public/AICombatTypes.h" },
 		{ "Reposition.Name", "EAICombatAction::Reposition" },
 		{ "SeekCover.Name", "EAICombatAction::SeekCover" },
@@ -113,6 +115,7 @@ struct Z_Construct_UEnum_CombatReadyAISandbox_EAICombatAction_Statics
 		{ "EAICombatAction::Reposition", (int64)EAICombatAction::Reposition },
 		{ "EAICombatAction::Dash", (int64)EAICombatAction::Dash },
 		{ "EAICombatAction::SeekCover", (int64)EAICombatAction::SeekCover },
+		{ "EAICombatAction::InCover", (int64)EAICombatAction::InCover },
 	};
 	static const UECodeGen_Private::FEnumParams EnumParams;
 }; // struct Z_Construct_UEnum_CombatReadyAISandbox_EAICombatAction_Statics 
@@ -162,6 +165,8 @@ struct Z_Construct_UEnum_CombatReadyAISandbox_EAIWeaponAction_Statics
 		{ "ModuleRelativePath", "Public/AICombatTypes.h" },
 		{ "None.DisplayName", "None" },
 		{ "None.Name", "EAIWeaponAction::None" },
+		{ "OutOfAmmo.DisplayName", "OutOfAmmo" },
+		{ "OutOfAmmo.Name", "EAIWeaponAction::OutOfAmmo" },
 		{ "Reload.DisplayName", "Reload" },
 		{ "Reload.Name", "EAIWeaponAction::Reload" },
 	};
@@ -170,6 +175,7 @@ struct Z_Construct_UEnum_CombatReadyAISandbox_EAIWeaponAction_Statics
 		{ "EAIWeaponAction::None", (int64)EAIWeaponAction::None },
 		{ "EAIWeaponAction::Fire", (int64)EAIWeaponAction::Fire },
 		{ "EAIWeaponAction::Reload", (int64)EAIWeaponAction::Reload },
+		{ "EAIWeaponAction::OutOfAmmo", (int64)EAIWeaponAction::OutOfAmmo },
 	};
 	static const UECodeGen_Private::FEnumParams EnumParams;
 }; // struct Z_Construct_UEnum_CombatReadyAISandbox_EAIWeaponAction_Statics 
@@ -195,16 +201,95 @@ UEnum* Z_Construct_UEnum_CombatReadyAISandbox_EAIWeaponAction()
 }
 // ********** End Enum EAIWeaponAction *************************************************************
 
+// ********** Begin Enum EAICoverAction ************************************************************
+static FEnumRegistrationInfo Z_Registration_Info_UEnum_EAICoverAction;
+static UEnum* EAICoverAction_StaticEnum()
+{
+	if (!Z_Registration_Info_UEnum_EAICoverAction.OuterSingleton)
+	{
+		Z_Registration_Info_UEnum_EAICoverAction.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_CombatReadyAISandbox_EAICoverAction, (UObject*)Z_Construct_UPackage__Script_CombatReadyAISandbox(), TEXT("EAICoverAction"));
+	}
+	return Z_Registration_Info_UEnum_EAICoverAction.OuterSingleton;
+}
+template<> COMBATREADYAISANDBOX_NON_ATTRIBUTED_API UEnum* StaticEnum<EAICoverAction>()
+{
+	return EAICoverAction_StaticEnum();
+}
+struct Z_Construct_UEnum_CombatReadyAISandbox_EAICoverAction_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+		{ "BlindFire.Comment", "// Minimal exposure\n" },
+		{ "BlindFire.Name", "EAICoverAction::BlindFire" },
+		{ "BlindFire.ToolTip", "Minimal exposure" },
+		{ "BlueprintType", "true" },
+		{ "Break.Comment", "// Adjust position while staying in cover\n" },
+		{ "Break.Name", "EAICoverAction::Break" },
+		{ "Break.ToolTip", "Adjust position while staying in cover" },
+		{ "Hide.Comment", "// In cover, waiting\n" },
+		{ "Hide.Name", "EAICoverAction::Hide" },
+		{ "Hide.ToolTip", "In cover, waiting" },
+		{ "Hold.Name", "EAICoverAction::Hold" },
+		{ "Lean.Comment", "// Brief exposure for LOS / firing\n" },
+		{ "Lean.Name", "EAICoverAction::Lean" },
+		{ "Lean.ToolTip", "Brief exposure for LOS / firing" },
+		{ "ModuleRelativePath", "Public/AICombatTypes.h" },
+		{ "Peek.Comment", "// Fully concealed\n" },
+		{ "Peek.Name", "EAICoverAction::Peek" },
+		{ "Peek.ToolTip", "Fully concealed" },
+		{ "Reload.Comment", "// Fire without LOS\n" },
+		{ "Reload.Name", "EAICoverAction::Reload" },
+		{ "Reload.ToolTip", "Fire without LOS" },
+		{ "Reposition.Comment", "// Reload safely in cover\n" },
+		{ "Reposition.Name", "EAICoverAction::Reposition" },
+		{ "Reposition.ToolTip", "Reload safely in cover" },
+	};
+#endif // WITH_METADATA
+	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
+		{ "EAICoverAction::Hold", (int64)EAICoverAction::Hold },
+		{ "EAICoverAction::Hide", (int64)EAICoverAction::Hide },
+		{ "EAICoverAction::Peek", (int64)EAICoverAction::Peek },
+		{ "EAICoverAction::Lean", (int64)EAICoverAction::Lean },
+		{ "EAICoverAction::BlindFire", (int64)EAICoverAction::BlindFire },
+		{ "EAICoverAction::Reload", (int64)EAICoverAction::Reload },
+		{ "EAICoverAction::Reposition", (int64)EAICoverAction::Reposition },
+		{ "EAICoverAction::Break", (int64)EAICoverAction::Break },
+	};
+	static const UECodeGen_Private::FEnumParams EnumParams;
+}; // struct Z_Construct_UEnum_CombatReadyAISandbox_EAICoverAction_Statics 
+const UECodeGen_Private::FEnumParams Z_Construct_UEnum_CombatReadyAISandbox_EAICoverAction_Statics::EnumParams = {
+	(UObject*(*)())Z_Construct_UPackage__Script_CombatReadyAISandbox,
+	nullptr,
+	"EAICoverAction",
+	"EAICoverAction",
+	Z_Construct_UEnum_CombatReadyAISandbox_EAICoverAction_Statics::Enumerators,
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	UE_ARRAY_COUNT(Z_Construct_UEnum_CombatReadyAISandbox_EAICoverAction_Statics::Enumerators),
+	EEnumFlags::None,
+	(uint8)UEnum::ECppForm::EnumClass,
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_CombatReadyAISandbox_EAICoverAction_Statics::Enum_MetaDataParams), Z_Construct_UEnum_CombatReadyAISandbox_EAICoverAction_Statics::Enum_MetaDataParams)
+};
+UEnum* Z_Construct_UEnum_CombatReadyAISandbox_EAICoverAction()
+{
+	if (!Z_Registration_Info_UEnum_EAICoverAction.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EAICoverAction.InnerSingleton, Z_Construct_UEnum_CombatReadyAISandbox_EAICoverAction_Statics::EnumParams);
+	}
+	return Z_Registration_Info_UEnum_EAICoverAction.InnerSingleton;
+}
+// ********** End Enum EAICoverAction **************************************************************
+
 // ********** Begin Registration *******************************************************************
 struct Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_AICombatTypes_h__Script_CombatReadyAISandbox_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
 		{ EAICombatState_StaticEnum, TEXT("EAICombatState"), &Z_Registration_Info_UEnum_EAICombatState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2184826638U) },
-		{ EAICombatAction_StaticEnum, TEXT("EAICombatAction"), &Z_Registration_Info_UEnum_EAICombatAction, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 895623600U) },
-		{ EAIWeaponAction_StaticEnum, TEXT("EAIWeaponAction"), &Z_Registration_Info_UEnum_EAIWeaponAction, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3941271516U) },
+		{ EAICombatAction_StaticEnum, TEXT("EAICombatAction"), &Z_Registration_Info_UEnum_EAICombatAction, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4239785444U) },
+		{ EAIWeaponAction_StaticEnum, TEXT("EAIWeaponAction"), &Z_Registration_Info_UEnum_EAIWeaponAction, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3199336848U) },
+		{ EAICoverAction_StaticEnum, TEXT("EAICoverAction"), &Z_Registration_Info_UEnum_EAICoverAction, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2688664355U) },
 	};
 }; // Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_AICombatTypes_h__Script_CombatReadyAISandbox_Statics 
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_AICombatTypes_h__Script_CombatReadyAISandbox_1127504227{
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_AICombatTypes_h__Script_CombatReadyAISandbox_30966149{
 	TEXT("/Script/CombatReadyAISandbox"),
 	nullptr, 0,
 	nullptr, 0,

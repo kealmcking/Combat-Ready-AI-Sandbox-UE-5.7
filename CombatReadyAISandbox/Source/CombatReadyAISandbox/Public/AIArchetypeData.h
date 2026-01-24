@@ -71,4 +71,27 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Parameters | Weapon")
 	float Accuracy;
+
+	// COVER
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Parameters | Cover")
+	float MinPeekCooldown;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Parameters | Cover")
+	float MaxPeekCooldown;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Parameters | Cover")
+	float PeekDuration;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Parameters | Cover")
+	float PeekChance;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Parameters | Cover")
+	float BreakHealthThreshold;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Parameters | Cover")
+	float MinRepositionCooldown;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Parameters | Cover")
+	float MaxRepositionCooldown;
+
 };

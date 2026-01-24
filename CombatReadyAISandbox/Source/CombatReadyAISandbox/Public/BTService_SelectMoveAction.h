@@ -26,6 +26,15 @@ protected:
 	const FName Key_DistanceToTarget = TEXT("DistanceToTarget");
 	const FName Key_HealthPct = TEXT("HealthPct");
 
+	const FName Key_RetreatThreshold = TEXT("RetreatHealthThreshold");
+
+	const FName Key_CoverHoldUntil = TEXT("CoverHoldUntil");
+	const FName Key_InCover = TEXT("bInCover");
+	const FName Key_MovingToCover = TEXT("bMovingToCover");
+
+	const FName Key_Bravery = TEXT("Bravery");
+	const FName Key_Accuracy = TEXT("Accuracy");
+
 	const FName Key_DesiredMoveAction = TEXT("DesiredMoveAction");
 	const FName Key_DesiredLocation = TEXT("DesiredMoveLocation");
 

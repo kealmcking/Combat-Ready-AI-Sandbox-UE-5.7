@@ -58,16 +58,6 @@ struct Z_Construct_UClass_UBTService_UpdateCombatState_Statics
 		{ "IncludePath", "BTService_UpdateCombatState.h" },
 		{ "ModuleRelativePath", "Public/BTService_UpdateCombatState.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RetreatHealthThreshold_MetaData[] = {
-		{ "Category", "Combat" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// Tuning\n" },
-#endif
-		{ "ModuleRelativePath", "Public/BTService_UpdateCombatState.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Tuning" },
-#endif
-	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AlertedGraceSeconds_MetaData[] = {
 		{ "Category", "Combat" },
 		{ "ModuleRelativePath", "Public/BTService_UpdateCombatState.h" },
@@ -75,7 +65,6 @@ struct Z_Construct_UClass_UBTService_UpdateCombatState_Statics
 #endif // WITH_METADATA
 
 // ********** Begin Class UBTService_UpdateCombatState constinit property declarations *************
-	static const UECodeGen_Private::FFloatPropertyParams NewProp_RetreatHealthThreshold;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_AlertedGraceSeconds;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 // ********** End Class UBTService_UpdateCombatState constinit property declarations ***************
@@ -87,10 +76,8 @@ struct Z_Construct_UClass_UBTService_UpdateCombatState_Statics
 }; // struct Z_Construct_UClass_UBTService_UpdateCombatState_Statics
 
 // ********** Begin Class UBTService_UpdateCombatState Property Definitions ************************
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UBTService_UpdateCombatState_Statics::NewProp_RetreatHealthThreshold = { "RetreatHealthThreshold", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBTService_UpdateCombatState, RetreatHealthThreshold), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RetreatHealthThreshold_MetaData), NewProp_RetreatHealthThreshold_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UBTService_UpdateCombatState_Statics::NewProp_AlertedGraceSeconds = { "AlertedGraceSeconds", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBTService_UpdateCombatState, AlertedGraceSeconds), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AlertedGraceSeconds_MetaData), NewProp_AlertedGraceSeconds_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UBTService_UpdateCombatState_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBTService_UpdateCombatState_Statics::NewProp_RetreatHealthThreshold,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBTService_UpdateCombatState_Statics::NewProp_AlertedGraceSeconds,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UBTService_UpdateCombatState_Statics::PropPointers) < 2048);
@@ -134,10 +121,10 @@ UBTService_UpdateCombatState::~UBTService_UpdateCombatState() {}
 struct Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_UpdateCombatState_h__Script_CombatReadyAISandbox_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UBTService_UpdateCombatState, UBTService_UpdateCombatState::StaticClass, TEXT("UBTService_UpdateCombatState"), &Z_Registration_Info_UClass_UBTService_UpdateCombatState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBTService_UpdateCombatState), 1495297049U) },
+		{ Z_Construct_UClass_UBTService_UpdateCombatState, UBTService_UpdateCombatState::StaticClass, TEXT("UBTService_UpdateCombatState"), &Z_Registration_Info_UClass_UBTService_UpdateCombatState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBTService_UpdateCombatState), 3448918644U) },
 	};
 }; // Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_UpdateCombatState_h__Script_CombatReadyAISandbox_Statics 
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_UpdateCombatState_h__Script_CombatReadyAISandbox_1111753745{
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_UpdateCombatState_h__Script_CombatReadyAISandbox_214176297{
 	TEXT("/Script/CombatReadyAISandbox"),
 	Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_UpdateCombatState_h__Script_CombatReadyAISandbox_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_BTService_UpdateCombatState_h__Script_CombatReadyAISandbox_Statics::ClassInfo),
 	nullptr, 0,

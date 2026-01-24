@@ -135,6 +135,40 @@ struct Z_Construct_UClass_UAIArchetypeData_Statics
 		{ "Category", "Parameters | Weapon" },
 		{ "ModuleRelativePath", "Public/AIArchetypeData.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MinPeekCooldown_MetaData[] = {
+		{ "Category", "Parameters | Cover" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// COVER\n" },
+#endif
+		{ "ModuleRelativePath", "Public/AIArchetypeData.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "COVER" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxPeekCooldown_MetaData[] = {
+		{ "Category", "Parameters | Cover" },
+		{ "ModuleRelativePath", "Public/AIArchetypeData.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PeekDuration_MetaData[] = {
+		{ "Category", "Parameters | Cover" },
+		{ "ModuleRelativePath", "Public/AIArchetypeData.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PeekChance_MetaData[] = {
+		{ "Category", "Parameters | Cover" },
+		{ "ModuleRelativePath", "Public/AIArchetypeData.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BreakHealthThreshold_MetaData[] = {
+		{ "Category", "Parameters | Cover" },
+		{ "ModuleRelativePath", "Public/AIArchetypeData.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MinRepositionCooldown_MetaData[] = {
+		{ "Category", "Parameters | Cover" },
+		{ "ModuleRelativePath", "Public/AIArchetypeData.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxRepositionCooldown_MetaData[] = {
+		{ "Category", "Parameters | Cover" },
+		{ "ModuleRelativePath", "Public/AIArchetypeData.h" },
+	};
 #endif // WITH_METADATA
 
 // ********** Begin Class UAIArchetypeData constinit property declarations *************************
@@ -157,6 +191,13 @@ struct Z_Construct_UClass_UAIArchetypeData_Statics
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_PreferredCoverDistance;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_LineOfSightHoldTime;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_Accuracy;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_MinPeekCooldown;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_MaxPeekCooldown;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_PeekDuration;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_PeekChance;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_BreakHealthThreshold;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_MinRepositionCooldown;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_MaxRepositionCooldown;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 // ********** End Class UAIArchetypeData constinit property declarations ***************************
 	static UObject* (*const DependentSingletons[])();
@@ -186,6 +227,13 @@ const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAIArchetypeDat
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_PreferredCoverDistance = { "PreferredCoverDistance", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAIArchetypeData, PreferredCoverDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PreferredCoverDistance_MetaData), NewProp_PreferredCoverDistance_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_LineOfSightHoldTime = { "LineOfSightHoldTime", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAIArchetypeData, LineOfSightHoldTime), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LineOfSightHoldTime_MetaData), NewProp_LineOfSightHoldTime_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_Accuracy = { "Accuracy", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAIArchetypeData, Accuracy), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Accuracy_MetaData), NewProp_Accuracy_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_MinPeekCooldown = { "MinPeekCooldown", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAIArchetypeData, MinPeekCooldown), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MinPeekCooldown_MetaData), NewProp_MinPeekCooldown_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_MaxPeekCooldown = { "MaxPeekCooldown", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAIArchetypeData, MaxPeekCooldown), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxPeekCooldown_MetaData), NewProp_MaxPeekCooldown_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_PeekDuration = { "PeekDuration", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAIArchetypeData, PeekDuration), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PeekDuration_MetaData), NewProp_PeekDuration_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_PeekChance = { "PeekChance", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAIArchetypeData, PeekChance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PeekChance_MetaData), NewProp_PeekChance_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_BreakHealthThreshold = { "BreakHealthThreshold", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAIArchetypeData, BreakHealthThreshold), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BreakHealthThreshold_MetaData), NewProp_BreakHealthThreshold_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_MinRepositionCooldown = { "MinRepositionCooldown", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAIArchetypeData, MinRepositionCooldown), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MinRepositionCooldown_MetaData), NewProp_MinRepositionCooldown_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_MaxRepositionCooldown = { "MaxRepositionCooldown", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAIArchetypeData, MaxRepositionCooldown), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxRepositionCooldown_MetaData), NewProp_MaxRepositionCooldown_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAIArchetypeData_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_WalkSpeed,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_RunSpeed,
@@ -206,6 +254,13 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAIArchet
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_PreferredCoverDistance,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_LineOfSightHoldTime,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_Accuracy,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_MinPeekCooldown,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_MaxPeekCooldown,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_PeekDuration,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_PeekChance,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_BreakHealthThreshold,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_MinRepositionCooldown,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAIArchetypeData_Statics::NewProp_MaxRepositionCooldown,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAIArchetypeData_Statics::PropPointers) < 2048);
 // ********** End Class UAIArchetypeData Property Definitions **************************************
@@ -249,10 +304,10 @@ UAIArchetypeData::~UAIArchetypeData() {}
 struct Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_AIArchetypeData_h__Script_CombatReadyAISandbox_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UAIArchetypeData, UAIArchetypeData::StaticClass, TEXT("UAIArchetypeData"), &Z_Registration_Info_UClass_UAIArchetypeData, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAIArchetypeData), 879241138U) },
+		{ Z_Construct_UClass_UAIArchetypeData, UAIArchetypeData::StaticClass, TEXT("UAIArchetypeData"), &Z_Registration_Info_UClass_UAIArchetypeData, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAIArchetypeData), 3427807556U) },
 	};
 }; // Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_AIArchetypeData_h__Script_CombatReadyAISandbox_Statics 
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_AIArchetypeData_h__Script_CombatReadyAISandbox_3578217429{
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_AIArchetypeData_h__Script_CombatReadyAISandbox_2251805632{
 	TEXT("/Script/CombatReadyAISandbox"),
 	Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_AIArchetypeData_h__Script_CombatReadyAISandbox_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Portfolio_Combat_Ready_AI_Sandbox_UE_5_7_CombatReadyAISandbox_Source_CombatReadyAISandbox_Public_AIArchetypeData_h__Script_CombatReadyAISandbox_Statics::ClassInfo),
 	nullptr, 0,

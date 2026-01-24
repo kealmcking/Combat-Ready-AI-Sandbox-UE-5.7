@@ -24,7 +24,8 @@ enum class EAICombatAction : uint8
     Strafe,
     Reposition,
     Dash,
-    SeekCover
+    SeekCover,
+    InCover
 };
 
 UENUM(BlueprintType)
@@ -32,5 +33,19 @@ enum class EAIWeaponAction : uint8
 {
 	None   UMETA(DisplayName = "None"),
 	Fire   UMETA(DisplayName = "Fire"),
-	Reload UMETA(DisplayName = "Reload")
+	Reload UMETA(DisplayName = "Reload"),
+    OutOfAmmo UMETA(DisplayName = "OutOfAmmo")
+};
+
+UENUM(BlueprintType) 
+enum class EAICoverAction : uint8
+{
+    Hold,        // In cover, waiting
+    Hide,        // Fully concealed
+    Peek,        // Brief exposure for LOS / firing
+    Lean,        // Minimal exposure
+    BlindFire,   // Fire without LOS
+    Reload,      // Reload safely in cover
+    Reposition,  // Adjust position while staying in cover
+    Break        // Leave cover entirely
 };
